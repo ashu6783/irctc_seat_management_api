@@ -1,7 +1,5 @@
 # irctc_seat_management_api
 
-Deployed Server- 
-
 This is a RESTful API for a irctc_seat_management_api in trains, built with Node.js, Express.js, and MySQL. It supports user registration, login, train management, seat availability checks, seat booking, and booking details retrieval. The system uses a controllers layer for business logic, handles race conditions for bookings using MySQL transactions, and includes role-based access control.
 
 ## Assumptions

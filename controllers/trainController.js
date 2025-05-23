@@ -1,4 +1,6 @@
 import db from "../config/db.js";
+
+
 // controller fro adding train 
 // requires train_name,source,destination,total_seats,available_seats 
 //x-api-key for admin in headers along with bearer token of admin when login 

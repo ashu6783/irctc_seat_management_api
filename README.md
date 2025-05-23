@@ -86,8 +86,7 @@ PORT=3000
    GET /api/bookings/detail - Get booking details
     Headers: Authorization: Bearer <JWT>
 
-**Testing**
- Postman json data is pushed along with code
+
 
   
 

@@ -86,6 +86,10 @@ PORT=3000
    GET /api/bookings/detail - Get booking details
     Headers: Authorization: Bearer <JWT>
 
+**Postman collection **
+
+    https://www.postman.com/supply-administrator-89551256/irctc/collection/ue0ofp2/irctc?share=true
+
 
 
   

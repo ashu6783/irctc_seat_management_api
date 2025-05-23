@@ -70,23 +70,23 @@ JWT_SECRET=your_jwt_secret
 ADMIN_API_KEY=your_admin_api_key
 PORT=3000
 
-**API Endpoints**
-
-POST /api/auth/register - Register a new user
-  Body: { "username": "string", "password": "string", "role": "user|admin" }
-POST /api/auth/login - Login and get JWT token
-  Body: { "username": "string", "password": "string" }
-POST /api/trains/add - Add a new train (Admin only)
-  Headers: x-api-key: <ADMIN_API_KEY>, Authorization: Bearer <JWT>
-  Body: { "train_name": "string", "source": "string", "destination": "string", "total_seats": number }
-GET /api/trains/availability - Check seat availability
-  Headers: Authorization: Bearer <JWT>
-  Query: ?source=<string>&destination=<string>
-POST /api/bookings/book - Book a seat
-  Headers: Authorization: Bearer <JWT>
-  Body: { "train_id": number }
-GET /api/bookings/detail - Get booking details
-  Headers: Authorization: Bearer <JWT>
+2. **API Endpoints**
+   ```bash
+   POST /api/auth/register - Register a new user
+    Body: { "username": "string", "password": "string", "role": "user|admin" }
+   POST /api/auth/login - Login and get JWT token
+    Body: { "username": "string", "password": "string" }
+   POST /api/trains/add - Add a new train (Admin only)
+    Headers: x-api-key: <ADMIN_API_KEY>, Authorization: Bearer <JWT>
+    Body: { "train_name": "string", "source": "string", "destination": "string", "total_seats": number }
+   GET /api/trains/availability - Check seat availability
+    Headers: Authorization: Bearer <JWT>
+    Query: ?source=<string>&destination=<string>
+   POST /api/bookings/book - Book a seat
+    Headers: Authorization: Bearer <JWT>
+    Body: { "train_id": number }
+   GET /api/bookings/detail - Get booking details
+    Headers: Authorization: Bearer <JWT>
 
 **Testing**
  Postman json data is pushed along with code

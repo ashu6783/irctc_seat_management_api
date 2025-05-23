@@ -61,7 +61,7 @@ This is a RESTful API for a irctc_seat_management_api in trains, built with Node
 
 **Set up env variables**
 DB_HOST=localhost
-DB_USER=your_mysql_user
+DB_USER=your_mysql_user(I user root)
 DB_PASSWORD=your_mysql_password
 DB_NAME=railway_db
 JWT_SECRET=your_jwt_secret

@@ -28,36 +28,38 @@ This is a RESTful API for a irctc_seat_management_api in trains, built with Node
    ```bash
    mpm i dotenv express bcryptjs jsonwebtoken mysql2
 
+2. **Set-up mysql database**
+  Run the following SQL to create the required tables:
+   ```bash
+   CREATE DATABASE railway_db;
+   USE railway_db;
+   CREATE TABLE users (
+       id INT AUTO_INCREMENT PRIMARY KEY,
+       username VARCHAR(255) NOT NULL UNIQUE,
+       password VARCHAR(255) NOT NULL,
+       role ENUM('user', 'admin') DEFAULT 'user'
+   );
+
+   CREATE TABLE trains (
+       train_id INT AUTO_INCREMENT PRIMARY KEY,
+       train_name VARCHAR(255) NOT NULL,
+       source VARCHAR(255) NOT NULL,
+       destination VARCHAR(255) NOT NULL,
+       total_seats INT NOT NULL,
+       available_seats INT NOT NULL
+   );
+
+   CREATE TABLE bookings (
+       booking_id INT AUTO_INCREMENT PRIMARY KEY,
+       user_id INT NOT NULL,
+       train_id INT NOT NULL,
+       booking_time DATETIME NOT NULL,
+       FOREIGN KEY (user_id) REFERENCES users(id),
+       FOREIGN KEY (train_id) REFERENCES trains(train_id)
+   );
+
 
 ---
-**Set-up mysql database**
-   Run the following SQL to create the required tables:
-CREATE DATABASE railway_db;
-USE railway_db;
-CREATE TABLE users (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    username VARCHAR(255) NOT NULL UNIQUE,
-    password VARCHAR(255) NOT NULL,
-    role ENUM('user', 'admin') DEFAULT 'user'
-);
-
-CREATE TABLE trains (
-    train_id INT AUTO_INCREMENT PRIMARY KEY,
-    train_name VARCHAR(255) NOT NULL,
-    source VARCHAR(255) NOT NULL,
-    destination VARCHAR(255) NOT NULL,
-    total_seats INT NOT NULL,
-    available_seats INT NOT NULL
-);
-
-CREATE TABLE bookings (
-    booking_id INT AUTO_INCREMENT PRIMARY KEY,
-    user_id INT NOT NULL,
-    train_id INT NOT NULL,
-    booking_time DATETIME NOT NULL,
-    FOREIGN KEY (user_id) REFERENCES users(id),
-    FOREIGN KEY (train_id) REFERENCES trains(train_id)
-);
 
 **Set up env variables**
 DB_HOST=localhost
